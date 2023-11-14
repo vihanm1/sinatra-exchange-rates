@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exchange Rates for <%= params[:currency_code] %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <h1>Exchange Rates for <%= params[:currency_code] %></h1>
+    
+    <% if @rates %>
+      <ul>
+        <% @rates.each do |currency, rate| %>
+          <li>
+            <%= "#{currency}: #{rate}" %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No rates found for <%= params[:currency_code] %>.</p>
+    <% end %>
+  </body>
+</html>
